@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surjo's Domain</title>
+    <style>
+        /* Basic Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        /* Rainbow Box Styling */
+        .rainbow-box {
+            background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+            color: black;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid white;
+        }
+
+        /* Instagram Link */
+        .rainbow-box a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* Form Styling */
+        .form-box {
+            padding: 20px;
+            margin: 20px auto;
+            width: 50%;
+            background-color: white;
+            border: 2px solid black;
+        }
+
+        .form-box label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .form-box input, .form-box textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+        }
+
+        /* Submit Button Styling */
+        .submit-button {
+            margin-top: 20px;
+            background: linear-gradient(to right, seaGreen, blue);
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+
+        /* New Menu Styling */
+        .new-menu {
+            display: none;
+            padding: 20px;
+            background: linear-gradient(to right, seaGreen, skyblue);
+            margin: 20px auto;
+            width: 50%;
+            color: black;
+            font-style: italic;
+        }
+
+        .new-menu h3 {
+            text-align: center;
+        }
+
+        .new-menu p {
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        /* Safe Box */
+        .safe-box {
+            display: none;
+            margin: 20px auto;
+            width: 50%;
+            background-color: gold;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            border: 2px solid black;
+        }
+
+        .safe-box input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid white;
+        }
+
+        /* Feedback Box */
+        .feedback-box {
+            margin-top: 20px;
+            background-color: white;
+            padding: 20px;
+            color: black;
+            border: 2px solid black;
+        }
+
+        .feedback-box textarea {
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+        }
+
+        .feedback-box button {
+            background-color: lemonGreen;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Welcome to Surjo's Domain</h1>
+    </div>
+
+    <!-- Rainbow Box with Instagram Link -->
+    <div class="rainbow-box">
+        <p>Follow me on Instagram: <a href="https://www.instagram.com/s4dx_._" target="_blank">s4dx_._</a></p>
+    </div>
+
+    <!-- Main Form Area -->
+    <div class="form-box">
+        <h2>Enter Your Details</h2>
+        
+        <label for="name">Name</label>
+        <input type="text" id="name" required>
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+        
+        <label for="number">Phone Number</label>
+        <input type="tel" id="number" required>
+        
+        <label for="instagram">Instagram ID</label>
+        <input type="text" id="instagram" required>
+        
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" required>
+
+        <button type="button" class="submit-button" onclick="submitForm()">Submit</button>
+    </div>
+
+    <!-- New Menu (Hidden Initially) -->
+    <div class="new-menu" id="newMenu">
+        <h3>Welcome to My World!</h3>
+        <p>My name - Swastick Das (But you can call me the prince of your dreams😉)</p>
+        <p>My nickname - Prince, Surjo, Baby (only for you babydoll😗)</p>
+        <p>My age - <span id="ageText">18</span> (age is just a number sweetheart)</p>
+        <p>State - West Bengal</p>
+        <p>City - Kolkata</p>
+        <p>Landmark - Baranagar</p>
+        <p>My Hobbies - Cooking, Riding Bikes, Driving Cars, Gardening, Playing Guitar</p>
+        <p>Achievements - Ex_Baranagar youth sporting Cricket Club Captain, State level under 16 player</p>
+        <p>Behaviour - Serious, Caring, Loving</p>
+        <p>Special skills - I can change the way you walk 😉</p>
+    </div>
+
+    <!-- Safe Box Section -->
+    <div class="safe-box" id="safeBox">
+        <h2>Safe Box</h2>
+        <p>Enter the password to access: 990009</p>
+        <input type="password" id="safeBoxPassword">
+        <button onclick="checkPassword()">Submit</button>
+        <div id="safeBoxContent" style="display:none;">
+            <p>Feedback and user data will be here.</p>
+        </div>
+    </div>
+
+    <!-- Feedback Section -->
+    <div class="feedback-box">
+        <h2>Leave Feedback</h2>
+        <textarea id="feedback" placeholder="Your feedback"></textarea>
+        <button onclick="submitFeedback()">Submit Feedback</button>
+    </div>
+
+    <script>
+        function submitForm() {
+            // Get form values
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const number = document.getElementById("number").value;
+            const instagram = document.getElementById("instagram").value;
+            const dob = document.getElementById("dob").value;
+
+            // Check if all fields are filled
+            if (!name || !email || !number || !instagram || !dob) {
+                alert("Please fill all the fields.");
+                return;
+            }
+
+            // Calculate age
+            const birthDate = new Date(dob);
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const month = today.getMonth() - birthDate.getMonth();
+            if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            document.getElementById("ageText").innerText = age;
+
+            // Hide the form and show the new menu
+            document.querySelector(".form-box").style.display = "none";
+            document.getElementById("newMenu").style.display = "block";
+        }
+
+        function checkPassword() {
+            const password = document.getElementById("safeBoxPassword").value;
+            if (password === "990009") {
+                document.getElementById("safeBoxContent").style.display = "block";
+            } else {
+                alert("Incorrect password!");
+            }
+        }
+
+        function submitFeedback() {
+            const feedback = document.getElementById("feedback").value;
+            if (feedback) {
+                alert("Feedback submitted successfully!");
+            } else {
+                alert("Please enter your feedback.");
+            }
+        }
+    </script>
+
+</body>
+</html>
